@@ -57,7 +57,7 @@ public class CameraConfig {
 
     public static void save(@NonNull double[] hue, @NonNull double[] sat, @NonNull double[] val, @NonNull double[] rectBounds, @NonNull double[] sectionBounds) {
         String text = "";
-        text += String.format(Locale.ENGLISH,"%f,%f\n%f,%f\n%f,%f\n", hue[0], hue[1], sat[1], sat[0], val[0], val[1]);
+        text += String.format(Locale.ENGLISH,"%f,%f\n%f,%f\n%f,%f\n", hue[0], hue[1], sat[0], sat[1], val[0], val[1]);
         text += String.format(Locale.ENGLISH, "%f,%f,%f,%f\n", rectBounds[0], rectBounds[1], rectBounds[2], rectBounds[3]);
         for(double d : sectionBounds)
             text += d + "\n";
