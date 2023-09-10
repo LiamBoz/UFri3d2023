@@ -47,16 +47,26 @@ public class Camera {
 
     public boolean hasInitialized = false;
 
+    private boolean autoSave;
+    private int autoSaveCounter = 0;
+    private final int autoSaveMaxCounter = 20;
+
     //Outputs
     private Mat blurOutput = new Mat();
     private Mat hsvThresholdOutput = new Mat();
     private ArrayList<MatOfPoint> findContoursOutput = new ArrayList<MatOfPoint>();
     private ArrayList<MatOfPoint> filterContoursOutput = new ArrayList<MatOfPoint>();
 
-    public Camera(HardwareMap hardwareMap, Telemetry telemetry) {
+    public Camera(HardwareMap hardwareMap, Telemetry telemetry, boolean autoSave) {
         this.hardwareMap = hardwareMap;
 
         initHardware(telemetry);
+
+        this.autoSave = autoSave;
+    }
+
+    public Camera(HardwareMap hardwareMap, Telemetry telemetry) {
+        this(hardwareMap, telemetry, false);
     }
 
     public void initHardware(Telemetry telemetry) {
@@ -123,6 +133,12 @@ public class Camera {
         vision.setHsvValMin(hsvVal[0]);
         vision.setHsvValMax(hsvVal[1]);
 
+        if(autoSave)
+            if(++autoSaveCounter % autoSaveMaxCounter == 0)
+                CameraConfig.save(hsvHue, hsvSat, hsvVal, new double[]{rectLeft, rectTop, rectRight, rectBot}, new double[]{bound});
+
+
+
 //        filterContoursOutput = vision.filterContoursOutput();
     }
 
@@ -131,7 +147,8 @@ public class Camera {
         webcam.stopStreaming();
         FtcDashboard.getInstance().stopCameraStream();
 
-        CameraConfig.save(hsvHue, hsvSat, hsvVal, new double[]{rectLeft, rectTop, rectRight, rectBot}, new double[]{bound});
+        if(autoSave)
+            CameraConfig.save(hsvHue, hsvSat, hsvVal, new double[]{rectLeft, rectTop, rectRight, rectBot}, new double[]{bound});
     }
 
     public double[] getHsvHue() {
