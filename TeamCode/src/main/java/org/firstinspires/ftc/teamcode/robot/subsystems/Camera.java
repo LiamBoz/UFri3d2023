@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.utils.ri3d.CameraConfig;
 import org.firstinspires.ftc.teamcode.utils.ri3d.PropPatternPipeline;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
@@ -122,6 +123,8 @@ public class Camera {
         webcam.stopRecordingPipeline();
         webcam.stopStreaming();
         FtcDashboard.getInstance().stopCameraStream();
+
+        CameraConfig.save(hsvHue, hsvSat, hsvVal, new double[]{rectLeft, rectTop, rectRight, rectBot}, new double[]{bound});
     }
 
     public double[] getHsvHue() {
