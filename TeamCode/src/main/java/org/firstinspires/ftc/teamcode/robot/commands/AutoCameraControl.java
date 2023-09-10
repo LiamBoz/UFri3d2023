@@ -601,6 +601,10 @@ public class AutoCameraControl {
         return PropPlacement.RIGHT;
     }
 
+    public PropPlacement getPlacement() {
+        return placement;
+    }
+
     public Camera getCamera() {
         return camera;
     }
