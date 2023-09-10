@@ -2,10 +2,6 @@ package org.firstinspires.ftc.teamcode.robot.commands;
 
 import static org.firstinspires.ftc.teamcode.utils.ri3d.Constants.TRIGGER_THRESHOLD;
 
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -90,7 +86,6 @@ public class AutoCameraControl {
         this(camera, gamepad1, gamepad2, null);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public void periodic() {
         // Update runtime read
         runtime = new Date().getTime(); //TODO: Make less jank?
