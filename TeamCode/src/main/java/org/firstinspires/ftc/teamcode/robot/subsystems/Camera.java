@@ -93,6 +93,15 @@ public class Camera {
             }
         });
 
+        CameraConfig config = new CameraConfig();
+        hsvHue = config.getHue();
+        hsvSat = config.getSat();
+        hsvVal = config.getVal();
+        rectLeft = config.getRectBounds()[0];
+        rectTop = config.getRectBounds()[1];
+        rectRight = config.getRectBounds()[2];
+        rectBot = config.getRectBounds()[3];
+
 
 //        FtcDashboard.getInstance().startCameraStream(webcam, 20);
     }
