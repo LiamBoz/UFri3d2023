@@ -49,7 +49,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AngleUnit.DEGR
 import static org.firstinspires.ftc.robotcore.external.navigation.AxesOrder.XYZ;
 import static org.firstinspires.ftc.robotcore.external.navigation.AxesOrder.YZX;
 import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.EXTRINSIC;
-import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
+//import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
 
 /**
  * This OpMode illustrates using the Vuforia localizer to determine positioning and orientation of
@@ -81,7 +81,7 @@ public class ConceptVuforiaFieldNavigation extends LinearOpMode {
     // 1) Camera Source.  Valid choices are:  BACK (behind screen) or FRONT (selfie side)
     // 2) Phone Orientation. Choices are: PHONE_IS_PORTRAIT = true (portrait) or PHONE_IS_PORTRAIT = false (landscape)
 
-    private static final VuforiaLocalizer.CameraDirection CAMERA_CHOICE = BACK;
+//    private static final VuforiaLocalizer.CameraDirection CAMERA_CHOICE = BACK;
     private static final boolean PHONE_IS_PORTRAIT = false  ;
 
     /*
@@ -128,7 +128,7 @@ public class ConceptVuforiaFieldNavigation extends LinearOpMode {
         // VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
         parameters.vuforiaLicenseKey = VUFORIA_KEY;
-        parameters.cameraDirection   = CAMERA_CHOICE;
+//        parameters.cameraDirection   = CAMERA_CHOICE;
 
         // Turn off Extended tracking.  Set this true if you want Vuforia to track beyond the target.
         parameters.useExtendedTracking = false;
@@ -183,11 +183,11 @@ public class ConceptVuforiaFieldNavigation extends LinearOpMode {
          */
 
         // We need to rotate the camera around its long axis to bring the correct camera forward.
-        if (CAMERA_CHOICE == BACK) {
-            phoneYRotate = -90;
-        } else {
-            phoneYRotate = 90;
-        }
+//        if (CAMERA_CHOICE == BACK) {
+//            phoneYRotate = -90;
+//        } else {
+//            phoneYRotate = 90;
+//        }
 
         // Rotate the phone vertical about the X axis if it's in portrait mode
         if (PHONE_IS_PORTRAIT) {
