@@ -600,4 +600,8 @@ public class AutoCameraControl {
     private PropPlacement PlacementByBounds(double pos) {
         return PropPlacement.RIGHT;
     }
+
+    public Camera getCamera() {
+        return camera;
+    }
 }
