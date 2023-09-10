@@ -65,6 +65,7 @@ public class Camera {
     public void initHardware(Telemetry telemetry) {
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "cam"), cameraMonitorViewId);
+        webcam.setViewportRenderer(OpenCvCamera.ViewportRenderer.NATIVE_VIEW);
         webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
             @Override
             public void onOpened() {
@@ -72,14 +73,14 @@ public class Camera {
                 telemetry.addLine("opened");
                 telemetry.update();
 
-                webcam.setViewportRenderer(OpenCvCamera.ViewportRenderer.GPU_ACCELERATED);
-                telemetry.addLine("gpu acc");
-                telemetry.update();
+
+//                telemetry.addLine("native view");
+//                telemetry.update();
                 webcam.setPipeline(vision);
                 telemetry.addLine("pipeline set");
                 telemetry.update();
                 webcam.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
-                FtcDashboard.getInstance().startCameraStream(webcam, 30);
+                FtcDashboard.getInstance().startCameraStream(webcam, 20);
 
                 telemetry.addLine("stream");
                 telemetry.update();
