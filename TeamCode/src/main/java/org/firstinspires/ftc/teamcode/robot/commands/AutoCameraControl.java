@@ -533,10 +533,6 @@ public class AutoCameraControl {
             telemetry.addLine(String.format(Locale.ENGLISH, "Sat: [%.2f, %.2f]", localHsvSat[0], localHsvSat[1]));
             telemetry.addLine(String.format(Locale.ENGLISH, "Val: [%.2f, %.2f]", localHsvVal[0], localHsvVal[1]));
             telemetry.addLine();
-            telemetry.addLine(String.format(Locale.ENGLISH, "Hue\': [%.2f, %.2f]", localHsvHue[0]*2, localHsvHue[1]*2));
-            telemetry.addLine(String.format(Locale.ENGLISH, "Sat\': [%.2f, %.2f]", localHsvSat[0]*0.39215686274, localHsvSat[1]*0.39215686274));
-            telemetry.addLine(String.format(Locale.ENGLISH, "Val\': [%.2f, %.2f]", localHsvVal[0]*0.39215686274, localHsvVal[1]*0.39215686274));
-            telemetry.addLine();
 //            telemetry.addData("contoursLeft", String.format(Locale.ENGLISH, "%.2f", contoursLeft));
 //            telemetry.addData("contoursCenter", String.format(Locale.ENGLISH, "%.2f", contoursCenter));
 //            telemetry.addData("contoursRight", String.format(Locale.ENGLISH, "%.2f", contoursRight));
@@ -566,9 +562,9 @@ public class AutoCameraControl {
         if (multiTelemetry != null) {
             multiTelemetry.addLine("Running!");
             multiTelemetry.addLine();
-            multiTelemetry.addLine(String.format(Locale.ENGLISH, "Hue: [%.2f, %.2f]", localHsvHue[0]*2, localHsvHue[1]*2));
-            multiTelemetry.addLine(String.format(Locale.ENGLISH, "Sat: [%.2f, %.2f]", localHsvSat[0]*0.39215686274, localHsvSat[1]*0.39215686274));
-            multiTelemetry.addLine(String.format(Locale.ENGLISH, "Val: [%.2f, %.2f]", localHsvVal[0]*0.39215686274, localHsvVal[1]*0.39215686274));
+            multiTelemetry.addLine(String.format(Locale.ENGLISH, "Hue: [%.2f, %.2f]", localHsvHue[0], localHsvHue[1]));
+            multiTelemetry.addLine(String.format(Locale.ENGLISH, "Sat: [%.2f, %.2f]", localHsvSat[0], localHsvSat[1]));
+            multiTelemetry.addLine(String.format(Locale.ENGLISH, "Val: [%.2f, %.2f]", localHsvVal[0], localHsvVal[1]));
             multiTelemetry.addLine();
 //            multiTelemetry.addData("contoursLeft", String.format(Locale.ENGLISH, "%.2f", contoursLeft));
 //            multiTelemetry.addData("contoursCenter", String.format(Locale.ENGLISH, "%.2f", contoursCenter));
