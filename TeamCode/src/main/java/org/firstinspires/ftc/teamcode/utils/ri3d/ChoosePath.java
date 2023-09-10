@@ -21,6 +21,7 @@ public class ChoosePath {
             return getPlacement(cam, telemetry, isStopRequested);
         }
 
+        cam.getCamera().stop();
         return placement;
     }
 }
