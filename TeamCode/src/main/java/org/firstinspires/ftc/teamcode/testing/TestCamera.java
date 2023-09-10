@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.testing;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.robot.commands.AutoCameraControl;
@@ -10,6 +11,7 @@ import org.firstinspires.ftc.teamcode.utils.ri3d.PropPlacement;
 import java.util.Date;
 import java.util.Objects;
 
+@Autonomous(name = "test camera", group = "testing")
 public class TestCamera extends LinearOpMode {
     private AutoCameraControl cam;
 
