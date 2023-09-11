@@ -2,26 +2,27 @@ package org.firstinspires.ftc.teamcode.utils.swampbots;
 
 public class ButtonCooldown {
 
-    private double cooldown = 0.075; // 75 milliseconds
-    private double snapshot = 0.0;
+    private long cooldown = 75L; // 75 milliseconds
+    private long snapshot = 0L;
 
-    public void updateSnapshot(double snapshot) {
-        this.snapshot = snapshot;
+    public void updateSnapshot(long snapshotMilli) {
+        this.snapshot = snapshotMilli;
     }
+    public void updateSnapshot(double snapshotSec) {this.snapshot = (long) (snapshotSec * 1000);}
 
-    public boolean ready(double runtime) {
+    public boolean ready(long runtime) {
         return(runtime - snapshot) > cooldown;
     }
 
     public void setCooldown(double seconds) {
-        this.cooldown = seconds;
+        this.cooldown = (long) (seconds * 1000);
     }
 
-    public double getCooldown () {
+    public long getCooldown () {
         return this.cooldown;
     }
 
-    public double getSnapshot () {
+    public long getSnapshot () {
         return this.snapshot;
     }
 }
