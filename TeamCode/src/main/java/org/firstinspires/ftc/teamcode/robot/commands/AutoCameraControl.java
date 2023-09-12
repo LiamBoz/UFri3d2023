@@ -289,8 +289,8 @@ public class AutoCameraControl {
             buttonCooldown[3] = false;
         } else if (!gamepad2.y && !buttonCooldown[3]) buttonCooldown[3] = true;
 
-        // Target Color
-        camera.showTargetColor(overlays[0]);
+        // Load from Config
+        if(overlays[0]) camera.loadFromConfig();
 
         // Rect
         camera.setDrawRect(overlays[1]);
@@ -549,7 +549,7 @@ public class AutoCameraControl {
             telemetry.addData("bound", String.format(Locale.ENGLISH, "%.2f", camera.getBound()));
             telemetry.addLine();
             telemetry.addLine("Visual Modifiers");
-            telemetry.addData((togglePoint==0?"*":"")+"Show Target Color", overlays[0]);
+            telemetry.addData((togglePoint==0?"*":"")+"Load from Config", overlays[0]);
             telemetry.addData((togglePoint==1?"*":"")+"Show Rect", overlays[1]);
             telemetry.addData((togglePoint==2?"*":"")+"Show Point", overlays[2]);
             telemetry.addData((togglePoint==3?"*":"")+"Show HSV", overlays[3]);
@@ -581,7 +581,7 @@ public class AutoCameraControl {
             multiTelemetry.addData("bound", String.format(Locale.ENGLISH, "%.2f", camera.getBound()));
             multiTelemetry.addLine();
             multiTelemetry.addLine("Visual Modifiers");
-            multiTelemetry.addData("Show Target Color", overlays[0]);
+            multiTelemetry.addData("Load From Config", overlays[0]);
             multiTelemetry.addData("Show Rect", overlays[1]);
             multiTelemetry.addData("Show Point", overlays[2]);
             multiTelemetry.addData("Show HSV", overlays[3]);
